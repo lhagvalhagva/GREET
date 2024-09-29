@@ -134,3 +134,35 @@ input {
     z-index: 50;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 90%; /* Make the card width responsive */
+    height: auto; /* Adjust height as needed */
+    top: 50%; /* Center the card vertically */
+    transform: translateY(-50%); /* Ensure it's centered */
+  }
+
+  .pg1 .h {
+    font-size: 60px; /* Reduce font size for smaller screens */
+  }
+
+  .pg1 .bd {
+    font-size: 45px; /* Reduce font size for smaller screens */
+  }
+
+  .pg1 .click {
+    font-size: 24px; /* Adjust button font size */
+  }
+
+  .birthday {
+    left: 50%; /* Center birthday text */
+    transform: rotate(-30deg) translateX(-50%) translateY(-50%);
+  }
+
+  .pg3 .content {
+    font-size: 28px; /* Smaller font size for content */
+    padding-left: 20px; /* Adjust padding */
+    padding-right: 20px; /* Adjust padding */
+  }
+}
