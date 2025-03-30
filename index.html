@@ -3,16 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Greeting Namuun</title>
+    <title>Greeting Maama</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
   </head>
   <body>
-    <label for="open">
+    <div id="code-container">
+      <div class="code-prompt">
+        <h2>Кодоо оруулах уу</h2>
+        <input type="text" id="password-input" placeholder="Энд хэсэг бүлэг код хийх xD" />
+        <button id="submit-code">Нээх</button>
+        <p id="error-message"></p>
+      </div>
+    </div>
+
+    <label for="open" id="card-container" style="display: none;">
       <input id="open" type="checkbox" />
       <div class="card pg1">
         <div class="h">Hi</div>
-        <div class="bd">Namuunaa</div>
+        <div class="bd">Maama</div>
         <div class="click">Click To Open</div>
       </div>
       <div class="card pg2">
@@ -24,16 +33,40 @@
       <div class="card pg3">
         <div class="content">
           <div class="wish">
-            <br /><br />
             <p>
-              Make sure to rest well, enjoy wholesome meals, nurture your immune
-              system, stay active in a way that feels good for you, and be kind
-              to yourself, Namuunaa
+              Make sure to rest well, enjoy wholesome meals, nurture your immune system, stay active in a way that feels good for you, and be kind to yourself, Maama. Take time to relax, cherish the little joys in life, and surround yourself with positivity. You are loved and appreciated more than you know. I think you are the best! 😊✨
             </p>
             <br />
           </div>
         </div>
       </div>
     </label>
+
+    <script>
+      const correctCode = "0213"; // Энд зөв кодыг оруулаарай
+      const codeContainer = document.getElementById("code-container");
+      const cardContainer = document.getElementById("card-container");
+      const passwordInput = document.getElementById("password-input");
+      const submitButton = document.getElementById("submit-code");
+      const errorMessage = document.getElementById("error-message");
+
+      submitButton.addEventListener("click", checkPassword);
+      passwordInput.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+          checkPassword();
+        }
+      });
+
+      function checkPassword() {
+        const enteredCode = passwordInput.value.toLowerCase().trim();
+        if (enteredCode === correctCode) {
+          codeContainer.style.display = "none";
+          cardContainer.style.display = "block";
+        } else {
+          errorMessage.textContent = "NO3 Дахин оролдоно уу.";
+          passwordInput.value = "";
+        }
+      }
+    </script>
   </body>
 </html>

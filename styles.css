@@ -5,12 +5,73 @@ input {
   display: none;
 }
 
+/* Код асуух хэсгийн стайл */
+#code-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 100;
+}
+
+.code-prompt {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 90%;
+  width: 350px;
+}
+
+.code-prompt h2 {
+  font-family: "Tangerine", cursive;
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: rgba(15, 59, 95, 0.85);
+}
+
+#password-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  display: block;
+}
+
+#submit-code {
+  background-color: rgba(15, 59, 95, 0.85);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#submit-code:hover {
+  background-color: rgba(15, 59, 95, 1);
+}
+
+#error-message {
+  color: #e74c3c;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* Үндсэн стайл */
 .card {
   width: 350px;
   height: 500px;
-
   border: 1px solid #eee;
-
   position: absolute;
   left: 50%;
   top: calc(50% - 250px);
@@ -102,7 +163,7 @@ input {
   padding-left: 60px;
   padding-right: 60px;
   font-family: "Tangerine", cursive;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: bold;
   color: rgba(15, 59, 95, 0.85);
 }
@@ -136,33 +197,103 @@ input {
 }
 
 @media only screen and (max-width: 600px) {
+  .code-prompt {
+    width: 280px;
+    padding: 20px;
+  }
+  
+  .code-prompt h2 {
+    font-size: 36px;
+  }
+
   .card {
-    width: 90%; /* Make the card width responsive */
-    height: auto; /* Adjust height as needed */
-    top: 50%; /* Center the card vertically */
-    transform: translateY(-50%); /* Ensure it's centered */
+    width: 300px;
+    height: 420px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .pg1 .h {
-    font-size: 60px; /* Reduce font size for smaller screens */
+    font-size: 80px;
   }
 
   .pg1 .bd {
-    font-size: 45px; /* Reduce font size for smaller screens */
+    font-size: 65px;
   }
 
   .pg1 .click {
-    font-size: 24px; /* Adjust button font size */
+    font-size: 28px;
+    bottom: 20px;
+  }
+
+  .pg2 .content {
+    left: 50%;
+    width: 80%;
   }
 
   .birthday {
-    left: 50%; /* Center birthday text */
-    transform: rotate(-30deg) translateX(-50%) translateY(-50%);
+    width: 250px;
+    left: 40%;
+    top: 65%;
   }
 
   .pg3 .content {
-    font-size: 28px; /* Smaller font size for content */
-    padding-left: 20px; /* Adjust padding */
-    padding-right: 20px; /* Adjust padding */
+    font-size: 30px;
+    padding: 15px 25px;
+    text-align: center;
+  }
+
+  @keyframes openCardPg1 {
+    50% {
+      left: 50%;
+      transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotateY(-180deg);
+    }
+  }
+
+  @keyframes openCardPg2 {
+    49% {
+      z-index: 30;
+    }
+    50% {
+      left: 50%;
+      transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotateY(-180deg);
+      z-index: 50;
+    }
+  }
+}
+
+/* For even smaller screens like small smartphones */
+@media only screen and (max-width: 350px) {
+  .card {
+    width: 250px;
+    height: 380px;
+  }
+
+  .pg1 .h {
+    font-size: 65px;
+  }
+
+  .pg1 .bd {
+    font-size: 50px;
+  }
+
+  .pg1 .click {
+    font-size: 24px;
+  }
+
+  .birthday {
+    width: 200px;
+  }
+
+  .pg3 .content {
+    font-size: 24px;
+    padding: 10px 15px;
   }
 }
