@@ -198,7 +198,7 @@ input {
 
 @media only screen and (max-width: 600px) {
   .code-prompt {
-    width: 280px;
+    width: 240px;
     padding: 20px;
   }
   
@@ -206,6 +206,9 @@ input {
     font-size: 36px;
   }
 
+  #password-input {
+    width: 210px;
+  }
   .card {
     width: 300px;
     height: 420px;
